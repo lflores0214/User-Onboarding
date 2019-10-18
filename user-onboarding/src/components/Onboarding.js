@@ -9,12 +9,25 @@ const FormName = styled(Form)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color:powderblue ;
+  border: 1px solid black;
+  width:40%;
+  margin:2% 0 2% 0;
+`;
+const StyledField= styled(Field)`
+    :focus{
+        background-color: yellow;
+        
+    }
 `;
 const FormDiv = styled.div`
-  width: 30%;
-  margin: 2% 0 0 35%;
-  border: 1px solid black;
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid Gainsboro;
   height: auto;
+  display: flex;
+  justify-content:center;
+  
 `;
 const StyledButton = styled.button`
   width: 20%;
@@ -28,10 +41,12 @@ const Label = styled.label`
 `;
 const UserDiv = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 80%;
   margin-left: 10%;
   flex-wrap: wrap;
+  padding:2%;
+  
 `;
 
 const UserCard = styled.div`
@@ -40,7 +55,8 @@ const UserCard = styled.div`
     align-items:center
     width: 20%
     border: 1px solid skyblue;
-    margin-top: 2%;
+    margin: 2% 0 2% 0;
+    background-color: lightseagreen;  
 `;
 
 
@@ -58,33 +74,33 @@ const Onboarding = ({ values, status, errors, touched }) => {
           <p>Enter your user information below</p>
           <Label>
             Name:
-            <Field type="text" name="name" placeholder="Name" />
+            <StyledField type="text" name="name" placeholder="Name" />
             {touched.name && errors.name && (
               <p className="errors>">{errors.name}</p>
             )}
           </Label>
           <Label>
             Email:
-            <Field type="text" name="email" placeholder="Email" />
+            <StyledField type="text" name="email" placeholder="Email" />
             {touched.email && errors.email && (
               <p className="errors>">{errors.email}</p>
             )}
           </Label>
           <Label>
             Password:
-            <Field type="password" name="password" placeholder="Password" />
+            <StyledField type="password" name="password" placeholder="Password" />
             {touched.password && errors.password && (
               <p className="errors>">{errors.password}</p>
             )}
           </Label>
           <Label>
             Role:
-            <Field component="select" name="role">
+            <StyledField component="select" name="role">
               <option>Choose your role</option>
-              <option value="fullstack">Full-Stack</option>
-              <option value="fronend">Front-End</option>
-              <option value="backend">Back-End</option>
-            </Field>
+              <option value="Full-Stack">Full-Stack</option>
+              <option value="Front-End">Front-End</option>
+              <option value="Back-End">Back-End</option>
+            </StyledField>
             {touched.role && errors.role && (
                 <p className="errors">{errors.role}</p>
             )}
@@ -92,7 +108,7 @@ const Onboarding = ({ values, status, errors, touched }) => {
           <Label>
             Check the box if you agree to our terms of service:
             <br />
-            <Field type="checkbox" name="tos" checked={values.tos} />
+            <StyledField type="checkbox" name="tos" checked={values.tos} />
             {touched.tos && errors.tos && (
               <p className="errors>">{errors.tos}</p>
             )}
