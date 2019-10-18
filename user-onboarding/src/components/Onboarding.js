@@ -56,7 +56,7 @@ const UserCard = styled.div`
     width: 20%
     border: 1px solid skyblue;
     margin: 2% 0 2% 0;
-    background-color: lightseagreen;  
+    background-color: skyblue;  
 `;
 
 
